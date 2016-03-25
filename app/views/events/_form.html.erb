@@ -1,7 +1,10 @@
-<%= f.label :name, "Name" %>
+
+
+
+<p><%= f.label :name, "學妹姓名：" %></p>
 <%= f.text_field :name %>
 
-<%= f.label :description, "Description" %>
+<p><%= f.label :description, "需要幫助的內容" %></p>
 <%= f.text_area :description %>
 
 <% if @event.errors.any? %>
@@ -11,3 +14,5 @@
       <% end %>
       </ul>
 <% end %>
+<p>分類：</p>
+<p><%= f.collection_select(:category_id, Category.all, :id, :name) %></p>

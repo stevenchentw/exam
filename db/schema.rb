@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325065944) do
+ActiveRecord::Schema.define(version: 20160325080052) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +28,9 @@ ActiveRecord::Schema.define(version: 20160325065944) do
     t.datetime "updated_at",  null: false
     t.string   "status"
     t.boolean  "is_public"
+    t.integer  "category_id"
   end
+
+  add_index "events", ["category_id"], name: "index_events_on_category_id"
 
 end
