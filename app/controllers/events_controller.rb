@@ -20,7 +20,7 @@ end
 def update
   if @event.update(event_params)
     flash[:notice] = "修改成功!"
-    redirect_to :action => :show, :id => @event
+    redirect_to event_url(@event)
   else
     render :action => :edit
   end
@@ -31,7 +31,7 @@ def create
   flash[:notice] = "成功建立!"
 
   if @event.save
-    redirect_to :action => :index
+    redirect_to events_url
   else
     render :action => :new
   end
@@ -40,7 +40,7 @@ end
 def destroy
   @event.destroy
   flash[:alert] = "刪除成功!"
-  redirect_to :action => :index
+  redirect_to events_url
 end
 
 
