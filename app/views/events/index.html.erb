@@ -6,12 +6,10 @@
 <table class="table">
    <tr>
     <td>
+    <%= event.category.name %>
     <%= event.name %>
     <%= event.created_at.strftime('%F') %>
-    </td>
-
-    <td>
-      <%= event.user.try(:short_name) %>
+    <%= event.user.try(:short_name) %>
 
     </td>
     <td>
