@@ -4,16 +4,22 @@
 <ul>
 <% @events.each do |event| %>
 <table class="table">
-   <td>
-    <tr>
+   <tr>
+    <td>
     <%= event.name %>
-    </tr>
-    <tr>
+    <%= event.created_at.strftime('%F') %>
+    </td>
+
+    <td>
+      <%= event.user.try(:short_name) %>
+
+    </td>
+    <td>
     <%= link_to "讓我看看", event_path(event)  ,:class => " btn btn-primary active "%>
     <%= link_to '可能要改一下', edit_event_path(event),:class => " btn btn-success active " %>
     <%= button_to '這...刪掉好了', event_path(event), :method => :delete,:class => "btn btn-danger active", :data => { :confirm => "確定放棄？" } %>
-    </tr>
     </td>
+    </tr>
 </table>
 <% end %>
 </ul>
