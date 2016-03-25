@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :events
+  resources :events do
+    resources :massages, :controller => 'event_massages'
+end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

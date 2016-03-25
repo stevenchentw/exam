@@ -1,0 +1,15 @@
+<ul>
+<% @massages.each do |massage| %>
+  <li>
+    <%= massage.name %>
+    <%= link_to '顯示留言', event_massage_path(@event, massage) %>
+    <%= link_to '修改留言', edit_event_massage_path(@event, massage) %>
+    <%= link_to '刪除留言', event_massage_path(@event, massage),:method => :delete %>
+  </li>
+<% end %>
+
+</ul>
+
+    <%= link_to '新增留言', new_event_massage_path(@event) %>
+
+    <p><%= link_to '回到首頁', events_path %></p>
