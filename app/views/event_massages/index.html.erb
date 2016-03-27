@@ -3,12 +3,10 @@
   <li>
     <%= massage.user.try(:short_name) %>
     <%= massage.name %>
-    <%= link_to '顯示留言', event_massage_path(@event, massage) %>
-    <%= link_to '修改留言', edit_event_massage_path(@event, massage) %>
-    <%= link_to '刪除留言', event_massage_path(@event, massage),:method => :delete %>
+    <%= link_to '修改留言', edit_event_massage_path(@event, massage) if massage.user == current_user %>
+    <%= link_to '刪除留言', event_massage_path(@event, massage),:method => :delete if massage.user == current_user %>
   </li>
 <% end %>
-
 </ul>
 
     <%= link_to '新增留言', new_event_massage_path(@event) %>

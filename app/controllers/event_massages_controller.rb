@@ -19,7 +19,7 @@ def create
   @massage = @event.massages.build( massage_params )
   @massage.user = current_user
   if @massage.save
-    redirect_to event_massages_url( @event )
+    redirect_to event_path( @event )
   else
     render :action => :new
   end
@@ -33,7 +33,7 @@ def update
   @massage = @event.massages.find( params[:id] )
 
   if @massage.update( massage_params )
-    redirect_to event_massages_url( @event )
+    redirect_to event_path( @event )
   else
     render :action => :edit
   end
@@ -44,7 +44,7 @@ def destroy
   @massage = @event.massages.find( params[:id] )
   @massage.destroy
 
-  redirect_to event_massages_url( @event )
+  redirect_to event_path( @event )
 end
 
 protected

@@ -13,6 +13,8 @@ end
 
 def show
   @page_title = @event.name
+  @massages = @event.massages
+  @massage = @event.massages.build
 end
 
 def edit
