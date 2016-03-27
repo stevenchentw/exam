@@ -15,7 +15,9 @@ def new
 end
 
 def create
+
   @massage = @event.massages.build( massage_params )
+  @massage.user = current_user
   if @massage.save
     redirect_to event_massages_url( @event )
   else

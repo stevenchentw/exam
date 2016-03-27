@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :events
+  has_many :massages
 
   def short_name
     self.email.split("@").first
